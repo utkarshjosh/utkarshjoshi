@@ -96,3 +96,9 @@ markup:
       unsafe: true
   highlight:
     noClasses: false
+
+cover:
+  image: "images/utkarshjoshi.png"
+  alt: "Utkarsh Joshi - Backend Software Engineer"
+  caption: "Backend Software Engineer | Web3 & AI Enthusiast"
+  relative: true
