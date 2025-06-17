@@ -1,0 +1,306 @@
+{{- define "main" }}
+
+{{- if not .IsHome | and .Title }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">{{ .Description | markdownify }}</div>
+  {{- end }}
+</header>
+{{- end }}
+
+{{- if .Content }}
+<div class="post-content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{- with .Params.profile.buttons }}
+<div class="contact-buttons">
+  {{- range . }}
+  <a class="contact-btn" href="{{ trim .url " " }}" rel="noopener" title="{{ .name }}">
+    <span class="button-inner">
+      {{ .name }}
+      {{- if (findRE "://" .url) }}&nbsp;
+      <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="14" width="14">
+          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+          <path d="M15 3h6v6"></path>
+          <path d="M10 14L21 3"></path>
+      </svg>
+      {{- end }}
+    </span>
+  </a>
+  {{- end }}
+</div>
+{{- end }}
+
+{{- with .Params.skills }}
+<div class="about-section">
+  <h2>Skills & Expertise</h2>
+  <div class="skills-grid">
+    {{- range . }}
+    <div class="skill-category">
+      <h3>{{ .title }}</h3>
+      <ul class="skill-list">
+        {{- range .items }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+  </div>
+</div>
+{{- end }}
+
+{{- with .Params.experience }}
+<div class="about-section">
+  <h2>Experience</h2>
+  <div class="experience-list">
+    {{- range . }}
+    <div class="experience-item">
+      <div class="experience-header">
+        <h3>{{ .position }}</h3>
+        <div class="company-duration">
+          <span class="company">{{ .company }}</span>
+          <span class="duration">{{ .duration }}</span>
+        </div>
+      </div>
+      <ul class="highlight-list">
+        {{- range .highlights }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+  </div>
+</div>
+{{- end }}
+
+{{- with .Params.resume_download }}
+<div class="resume-section">
+  <a href="{{ .url }}" class="resume-btn" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7,10 12,15 17,10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    {{ .text }}
+  </a>
+</div>
+{{- end }}
+
+<style>
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: var(--content-gap) 0 calc(var(--content-gap) * 2) 0;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--code-bg);
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: calc(36px / 2);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  transition: all 0.1s ease;
+}
+
+.contact-btn:hover {
+  background: var(--tertiary);
+}
+
+.about-section {
+  margin: calc(var(--content-gap) * 2) 0;
+}
+
+.about-section h2 {
+  font-size: 24px;
+  margin-bottom: var(--content-gap);
+  color: var(--primary);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--content-gap);
+  margin-top: var(--content-gap);
+}
+
+.skill-category {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--content-gap);
+}
+
+.skill-category h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-category h3::before {
+  content: "▶";
+  color: var(--theme);
+  font-size: 12px;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-list li {
+  padding: 4px 0;
+  color: var(--secondary);
+  font-size: 14px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.skill-list li::before {
+  content: "•";
+  color: var(--theme);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.experience-list {
+  margin-top: var(--content-gap);
+}
+
+.experience-item {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--content-gap);
+  margin-bottom: var(--content-gap);
+}
+
+.experience-header {
+  margin-bottom: 12px;
+}
+
+.experience-header h3 {
+  font-size: 18px;
+  margin: 0 0 6px 0;
+  color: var(--primary);
+}
+
+.company-duration {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.company {
+  font-weight: 500;
+  color: var(--primary);
+  background: var(--tertiary);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  border: 1px solid var(--border);
+}
+
+.duration {
+  color: var(--primary);
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlight-list li {
+  padding: 6px 0;
+  color: var(--primary);
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 20px;
+  opacity: 0.9;
+}
+
+.highlight-list li::before {
+  content: "→";
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.resume-section {
+  margin-top: calc(var(--content-gap) * 2);
+  text-align: center;
+  padding-top: var(--content-gap);
+  border-top: 1px solid var(--border);
+}
+
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: var(--theme);
+  text-decoration: none;
+  border-radius: calc(36px / 2);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.1s ease;
+}
+
+.resume-btn:hover {
+  background: var(--secondary);
+}
+
+.resume-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .company-duration {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+  }
+  
+  .contact-btn {
+    justify-content: center;
+  }
+}
+</style>
+
+{{- end }} 

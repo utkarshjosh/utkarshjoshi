@@ -1,0 +1,98 @@
+baseURL: https://utkarshjoshi.com/
+languageCode: en-us
+title: Utkarsh Joshi
+theme: [PaperMod]
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+mainsections: ["posts", "projects"]
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 5
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - name: About
+          url: about
+          weight: 1
+        - name: Projects
+          url: projects
+          weight: 2
+        - name: Blog
+          url: posts
+          weight: 3
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  description: "Backend-focused Software Engineer specializing in Node.js, TypeScript, and Python with experience in Web3 and AI-driven products"
+  author: Utkarsh Joshi
+  defaultTheme: auto
+  ShowShareButtons: true
+  ShowReadingTime: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  images: ["images/utkarshjoshi.png"]
+
+  profileMode:
+    enabled: true
+    title: Utkarsh Joshi
+    subtitle: "Backend Software Engineer | Web3 & AI Enthusiast"
+    imageUrl: "images/utkarshjoshi.png"
+    imageTitle: Utkarsh Joshi
+    buttons:
+      - name: Projects
+        url: projects
+      - name: Blog
+        url: posts
+      - name: GitHub
+        url: https://github.com/utkarshjosh
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/utkarshjoshi"
+    - name: linkedin
+      url: "https://linkedin.com/in/utkarshwithknack"
+    - name: twitter
+      url: "https://x.com/Utkajoshi"
+
+  editPost:
+    URL: "https://github.com/utkarshjosh/utkarshjoshi.com"
+    Text: "Edit Post"
+    appendFilePath: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false

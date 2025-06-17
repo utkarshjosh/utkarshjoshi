@@ -1,0 +1,151 @@
+{{- define "main" }} {{- if not .IsHome | and .Title }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">{{ .Description | markdownify }}</div>
+  {{- end }}
+</header>
+{{- end }} {{- if .Content }}
+<div class="post-content">{{- if not (.Param "disableAnchoredHeadings") }} {{- partial "anchored_headings.html" .Content -}} {{- else }}{{ .Content }}{{ end }}</div>
+{{- end }} {{- range .Site.RegularPages.ByParam "date" }} {{- if eq .Section "projects" }}
+<article class="post-entry">
+  {{- if .Params.image }}
+  <div class="entry-cover">
+    <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy" />
+  </div>
+  {{- end }}
+
+  <header class="entry-header">
+    <h2>{{ .Title }}</h2>
+  </header>
+
+  <div class="entry-content">
+    {{- if .Params.description }}
+    <p>{{ .Params.description }}</p>
+    {{- else }}
+    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    {{- end }}
+  </div>
+
+  {{- if .Params.tags }}
+  <footer class="entry-footer">
+    {{- range .Params.tags }}
+    <span class="project-tag">{{ . }}</span>
+    {{- end }}
+  </footer>
+  {{- end }}
+
+  <div class="project-actions">
+    {{- if .Params.demo }}
+    <a href="{{ .Params.demo }}" class="project-btn project-btn-primary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15,3 21,3 21,9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+      Live Demo
+    </a>
+    {{- end }} {{- if .Params.github }}
+    <a href="{{ .Params.github }}" class="project-btn project-btn-secondary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+      </svg>
+      GitHub
+    </a>
+    {{- end }} {{- if .Params.blog }}
+    <a href="{{ .Params.blog | relURL }}" class="project-btn project-btn-tertiary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+      </svg>
+      Read More
+    </a>
+    {{- end }}
+  </div>
+</article>
+{{- end }} {{- end }}
+
+<style>
+  .project-tag {
+    display: inline-block;
+    background: var(--code-bg);
+    color: var(--primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .project-actions {
+    margin-top: var(--content-gap);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: calc(36px / 2);
+    font-size: 13px;
+    line-height: 20px;
+    text-decoration: none;
+    transition: all 0.1s ease;
+    border: 1px solid var(--border);
+  }
+
+  .project-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .project-btn-primary {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+  }
+
+  .project-btn-primary:hover {
+    background: var(--secondary);
+    color: var(--theme);
+  }
+
+  .project-btn-secondary {
+    background: var(--code-bg);
+    color: var(--primary);
+    border-color: var(--border);
+  }
+
+  .project-btn-secondary:hover {
+    background: var(--tertiary);
+  }
+
+  .project-btn-tertiary {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--border);
+  }
+
+  .project-btn-tertiary:hover {
+    background: var(--code-bg);
+  }
+
+  @media (max-width: 768px) {
+    .project-actions {
+      flex-direction: column;
+    }
+
+    .project-btn {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+</style>
+
+{{- end }}
