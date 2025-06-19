@@ -50,6 +50,12 @@ params:
   env: production
   description: "Backend-focused Software Engineer specializing in Node.js, TypeScript, and Python with experience in Web3 and AI-driven products"
   author: Utkarsh Joshi
+
+  # Google Analytics
+  analytics:
+    google:
+      enabled: true
+      id: "G-4T11JKKRK4"
   defaultTheme: auto
   ShowShareButtons: true
   ShowReadingTime: true
@@ -66,7 +72,7 @@ params:
   profileMode:
     enabled: true
     title: Utkarsh Joshi
-    subtitle: "Backend Software Engineer | Web3 & AI Enthusiast"
+    subtitle: "Software Engineer | Web3 & AI Enthusiast"
     imageUrl: "images/utkarshjoshi.png"
     imageTitle: Utkarsh Joshi
     buttons:
