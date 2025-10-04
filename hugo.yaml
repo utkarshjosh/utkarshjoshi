@@ -51,6 +51,10 @@ params:
   description: "Backend-focused Software Engineer specializing in Node.js, TypeScript, and Python with experience in Web3 and AI-driven products"
   author: Utkarsh Joshi
 
+  # Assets configuration
+  assets:
+    favicon: "images/favicon.ico"
+
   # Google Analytics
   analytics:
     google:
