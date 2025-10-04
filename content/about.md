@@ -54,7 +54,7 @@ experience:
       - "Created developer tools used by 100+ Web3 developers"
 
 resume_download:
-  url: "https://drive.google.com/uc?export=download&id=1mwhi4uTfm1NgrvLzegLYY2diGfijyUxR"
+  url: "https://drive.google.com/uc?export=download&id=1BbxACB17z7SIovIOBrrjB7pSVts_YOJU"
   text: "Download Resume"
 ---
 

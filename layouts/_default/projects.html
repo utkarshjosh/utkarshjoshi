@@ -7,9 +7,16 @@
   {{- end }}
 </header>
 {{- end }} {{- if .Content }}
-<div class="post-content">{{- if not (.Param "disableAnchoredHeadings") }} {{- partial "anchored_headings.html" .Content -}} {{- else }}{{ .Content }}{{ end }}</div>
-{{- end }} {{- range .Site.RegularPages.ByParam "date" }} {{- if eq .Section "projects" }}
-<article class="post-entry">
+<div class="post-content">
+  {{- if not (.Param "disableAnchoredHeadings") }} {{- partial
+  "anchored_headings.html" .Content -}} {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }} {{- range (.Site.RegularPages.ByParam "date").Reverse }} {{- if eq
+.Section "projects" }}
+<article
+  class="post-entry"
+  onclick="handleProjectClick(this)"
+  data-blog-url="{{ if .Params.blog }}{{ .Params.blog | relURL }}{{ end }}">
   {{- if .Params.image }}
   <div class="entry-cover">
     <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy" />
@@ -24,7 +31,9 @@
     {{- if .Params.description }}
     <p>{{ .Params.description }}</p>
     {{- else }}
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    <p>
+      {{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}
+    </p>
     {{- end }}
   </div>
 
@@ -38,27 +47,57 @@
 
   <div class="project-actions">
     {{- if .Params.demo }}
-    <a href="{{ .Params.demo }}" class="project-btn project-btn-primary" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+    <a
+      href="{{ .Params.demo }}"
+      class="project-btn project-btn-primary"
+      target="_blank"
+      rel="noopener">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+        <path
+          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
         <polyline points="15,3 21,3 21,9"></polyline>
         <line x1="10" y1="14" x2="21" y2="3"></line>
       </svg>
       Live Demo
     </a>
     {{- end }} {{- if .Params.github }}
-    <a href="{{ .Params.github }}" class="project-btn project-btn-secondary" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <a
+      href="{{ .Params.github }}"
+      class="project-btn project-btn-secondary"
+      target="_blank"
+      rel="noopener">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
         <path
           d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
       </svg>
       GitHub
     </a>
     {{- end }} {{- if .Params.blog }}
-    <a href="{{ .Params.blog | relURL }}" class="project-btn project-btn-tertiary">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <a
+      href="{{ .Params.blog | relURL }}"
+      class="project-btn project-btn-tertiary">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        <path
+          d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
       </svg>
       Read More
     </a>
@@ -136,6 +175,21 @@
     background: var(--code-bg);
   }
 
+  .post-entry {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .post-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-entry:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
+  }
+
   @media (max-width: 768px) {
     .project-actions {
       flex-direction: column;
@@ -147,5 +201,41 @@
     }
   }
 </style>
+
+<script>
+  function handleProjectClick(element) {
+    // Get the blog URL from the data attribute
+    const blogUrl = element.getAttribute("data-blog-url");
+
+    if (blogUrl) {
+      // Add click animation
+      element.style.transform = "scale(0.98)";
+      element.style.transition = "transform 0.1s ease";
+
+      // Reset animation after a short delay
+      setTimeout(() => {
+        element.style.transform = "";
+      }, 100);
+
+      // Navigate to the blog URL
+      setTimeout(() => {
+        window.location.href = blogUrl;
+      }, 150);
+    }
+  }
+
+  // Prevent button clicks from triggering the card click
+  document.addEventListener("DOMContentLoaded", function () {
+    const projectCards = document.querySelectorAll(".post-entry");
+    projectCards.forEach((card) => {
+      const buttons = card.querySelectorAll(".project-btn");
+      buttons.forEach((button) => {
+        button.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+      });
+    });
+  });
+</script>
 
 {{- end }}
