@@ -5,7 +5,7 @@ draft: false
 description: "A full-stack real-time quiz platform with live leaderboards and instant feedback."
 image: "images/projects/quiz-app-hero.png"
 tags: ["React", "Go", "WebSockets", "PostgreSQL", "Docker"]
-github: "https://github.com/utkarshjosh/quiz-app"
+github: "https://github.com/utkarshjosh/quiz-maker"
 demo: "https://quiz.utkarshjoshi.com"
 blog: "/posts/building-a-real-time-quiz-app"
 ---
