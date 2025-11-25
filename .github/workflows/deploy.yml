@@ -32,6 +32,7 @@ jobs:
             --parameters 'commands=[
               "cd ${{ secrets.PROJECT_DIRECTORY || '/home/ubuntu/utkarshjoshi' }} || exit 1",
               "pwd",
+              "git config --global --add safe.directory ${{ secrets.PROJECT_DIRECTORY || '/home/ubuntu/utkarshjoshi' }}",   
               "echo \"=== Git Status Before Update ===\"",
               "git status",
               "echo \"=== Current Branch ===\"",
