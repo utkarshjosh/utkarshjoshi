@@ -6,7 +6,6 @@ description: "Python framework for building and deploying AI agents for process 
 image: "images/projects/brain.jpg"
 tags: ["AI", "Python", "Automation"]
 github: "https://github.com/utkarshjosh/ai-agent-framework"
-demo: "https://demo.ai-agent-framework.com"
 blog: "/posts/building-ai-agents"
 ---
 

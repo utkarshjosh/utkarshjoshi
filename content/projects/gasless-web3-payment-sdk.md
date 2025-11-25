@@ -6,7 +6,6 @@ description: "TypeScript SDK for implementing gasless payments in Web3 applicati
 image: "images/projects/gasless.png"
 tags: ["Web3", "TypeScript", "Ethereum"]
 github: "https://github.com/utkarshjosh/gasless-payment-sdk"
-demo: "https://demo.gasless-payment-sdk.com"
 blog: "/posts/building-gasless-web3-applications"
 ---
 

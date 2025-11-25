@@ -6,7 +6,6 @@ description: "High-performance Node.js backend for real-time cryptocurrency trad
 image: "images/projects/polymarket.jpg"
 tags: ["Node.js", "WebSocket", "Trading", "TypeScript"]
 github: "https://github.com/utkarshjosh/trading-backend"
-demo: "https://demo.trading-backend.com"
 blog: "/posts/building-real-time-trading-systems"
 ---
 
