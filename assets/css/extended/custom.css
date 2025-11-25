@@ -155,8 +155,8 @@ body.section-projects .page-footer {
     padding: 0 20px;
 }
 
-/* Drop Cap */
-.post-content p:first-of-type::first-letter {
+/* Drop Cap - Exclude About page */
+.post-content:not(.about-content) p:first-of-type::first-letter {
     float: left;
     font-size: 3.5rem;
     line-height: 0.8;

@@ -3,7 +3,7 @@ title: "About Me"
 date: 2024-03-20
 draft: false
 layout: "about"
-description: "Backend Software Engineer specializing in Node.js, TypeScript, and Python with experience in Web3 and AI-driven products"
+description: "Software Engineer with 3+ years of experience building and owning products end-to-end in fast-paced startup environments"
 
 # Profile section
 profile:
@@ -58,6 +58,10 @@ resume_download:
   text: "Download Resume"
 ---
 
-Backend software engineer focused on building scalable applications with Node.js, TypeScript, and Python. Experience spans Web3 infrastructure, AI-powered solutions, and high-performance trading systems.
+I'm a software engineer with 3+ years of experience building and owning products end-to-end in fast-paced startup environments. Working directly with founders and business stakeholders, I learned to think in terms of real problems, outcomes, and long-term product health—not just tasks. I care about designing durable systems: clear contracts, strong patterns, and architectures that evolve cleanly over the full software lifecycle.
 
-Currently working on real-time financial platforms and AI automation tools.
+Along the way, I've developed a deep adaptability muscle. I began with JavaScript, Vue, and Node; built Ethereum crypto bridges; moved into the TON/Telegram ecosystem and shipped a production-grade Golang transaction server; implemented a Polymarket-style trading engine in under three weeks; and even delivered features in Unity. My work spans multiple stacks and domains, and I've consistently learned new technologies on the fly to support business goals.
+
+Beyond features, I've driven platform-level changes—most notably migrating a full B2B SaaS product into a modern API-first platform. More recently, I've been focused on AI: building internal agents that plug directly into our CRM, automating workflows, and exploring generative UI to create intrinsically AI-integrated, dynamic, user-adaptive applications.
+
+I'm now looking for roles where product sense, platform thinking, and technical versatility matter as much as the code itself—environments where I can own problems end-to-end and help push teams toward cleaner architecture, faster iteration, and higher-impact solutions.
