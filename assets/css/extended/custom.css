@@ -1,21 +1,21 @@
 /* Widen the main container */
 :root {
-    --main-width: 1000px;
-    --gap: 30px;
+  --main-width: 1000px;
+  --gap: 30px;
 }
 
 /* Typography Improvements */
 body {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .post-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .post-title {
-    font-size: 48px;
+  font-size: 48px;
 }
 
 /* =========================================
@@ -24,103 +24,103 @@ body {
 
 /* Grid Layout for Projects Page only */
 body.section-projects .main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 /* Make header and footer span full width in grid */
 body.section-projects .page-header,
 body.section-projects .pagination,
 body.section-projects .page-footer {
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 /* Mobile responsiveness for grid */
 @media (max-width: 768px) {
-    body.section-projects .main {
-        grid-template-columns: 1fr;
-    }
+  body.section-projects .main {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Card Styling */
 .post-entry {
-    background: transparent;
-    border: 1px solid var(--border);
-    /* Re-adding subtle border for cards */
-    border-radius: 12px;
-    padding: 25px;
-    /* Added padding */
-    margin-bottom: 0;
-    /* Grid handles gap */
-    box-shadow: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    /* Start hidden for animation */
-    animation: fadeInUp 0.6s ease forwards;
+  background: transparent;
+  border: 1px solid var(--border);
+  /* Re-adding subtle border for cards */
+  border-radius: 12px;
+  padding: 25px;
+  /* Added padding */
+  margin-bottom: 0;
+  /* Grid handles gap */
+  box-shadow: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  /* Start hidden for animation */
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 .post-entry:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    background: var(--entry);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  background: var(--entry);
 }
 
 .entry-header h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .entry-content {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--secondary);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--secondary);
 }
 
 /* Animation Keyframes */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Stagger animations (up to 10 items) */
 .post-entry:nth-child(1) {
-    animation-delay: 0.1s;
+  animation-delay: 0.1s;
 }
 
 .post-entry:nth-child(2) {
-    animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 .post-entry:nth-child(3) {
-    animation-delay: 0.3s;
+  animation-delay: 0.3s;
 }
 
 .post-entry:nth-child(4) {
-    animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
 
 .post-entry:nth-child(5) {
-    animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 
 .post-entry:nth-child(6) {
-    animation-delay: 0.6s;
+  animation-delay: 0.6s;
 }
 
 .post-entry:nth-child(7) {
-    animation-delay: 0.7s;
+  animation-delay: 0.7s;
 }
 
 .post-entry:nth-child(8) {
-    animation-delay: 0.8s;
+  animation-delay: 0.8s;
 }
 
 /* =========================================
@@ -129,82 +129,92 @@ body.section-projects .page-footer {
 
 /* Center Header */
 .post-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 0 20px;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
 }
 
 .post-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-    letter-spacing: -1px;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
 }
 
 .post-meta {
-    justify-content: center;
-    font-size: 0.9rem;
-    opacity: 0.8;
+  justify-content: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
 /* Content Styling */
 .post-content {
-    max-width: 800px;
-    /* Keep content readable width even in wide container */
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 800px;
+  /* Keep content readable width even in wide container */
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Drop Cap - Exclude About page */
 .post-content:not(.about-content) p:first-of-type::first-letter {
-    float: left;
-    font-size: 3.5rem;
-    line-height: 0.8;
-    padding-right: 10px;
-    padding-top: 4px;
-    font-weight: bold;
-    color: var(--primary);
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding-right: 10px;
+  padding-top: 4px;
+  font-weight: bold;
+  color: var(--primary);
 }
 
 /* Blockquotes */
 .post-content blockquote {
-    border-left: 6px solid var(--primary);
-    background: var(--code-bg);
-    padding: 20px 30px;
-    margin: 30px 0;
-    font-style: italic;
-    font-size: 1.2rem;
-    border-radius: 0 8px 8px 0;
+  border-left: 6px solid var(--primary);
+  background: var(--code-bg);
+  padding: 20px 30px;
+  margin: 30px 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  border-radius: 0 8px 8px 0;
 }
 
 /* Images */
 .post-content img {
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    margin: 40px auto;
-    display: block;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  margin: 40px auto;
+  display: block;
 }
 
 /* Lists */
 .post-content ul,
 .post-content ol {
-    padding-left: 20px;
-    margin-bottom: 20px;
+  padding-left: 20px;
+  margin-bottom: 20px;
 }
 
 .post-content li {
-    margin-bottom: 10px;
-    padding-left: 5px;
+  margin-bottom: 10px;
+  padding-left: 5px;
 }
 
 /* Separator */
 .post-content hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
-    margin: 50px 0;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0)
+  );
+  margin: 50px 0;
 }
 
 .dark .post-content hr {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
 }
