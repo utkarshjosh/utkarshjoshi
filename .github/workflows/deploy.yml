@@ -31,8 +31,8 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=[
               "cd ${{ secrets.PROJECT_DIRECTORY || '/home/ubuntu/utkarshjoshi' }} || exit 1",
+              "sudo chown -R ssm-user:ssm-user . || chown -R $(whoami):$(whoami) .",   
               "pwd",
-              "git config --global --add safe.directory ${{ secrets.PROJECT_DIRECTORY || '/home/ubuntu/utkarshjoshi' }}",   
               "echo \"=== Git Status Before Update ===\"",
               "git status",
               "echo \"=== Current Branch ===\"",
