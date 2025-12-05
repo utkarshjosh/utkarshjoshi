@@ -13,13 +13,17 @@
 </div>
 {{- end }} {{- range (.Site.RegularPages.ByParam "date").Reverse }} {{- if eq
 .Section "projects" }}
-<article
-  class="post-entry"
-  onclick="handleProjectClick(this)"
+<article class="post-entry" onclick="handleProjectClick(this)"
   data-blog-url="{{ if .Params.blog }}{{ .Params.blog | relURL }}{{ end }}">
   {{- if .Params.image }}
   <div class="entry-cover">
-    <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy" />
+    {{- $imageMap := site.Data.image_map -}}
+    {{- $imageKey := strings.TrimPrefix "/" .Params.image -}}
+    {{- $imgSrc := .Params.image | relURL -}}
+    {{- if and $imageMap (index $imageMap $imageKey) -}}
+    {{- $imgSrc = index $imageMap $imageKey -}}
+    {{- end -}}
+    <img src="{{ $imgSrc }}" alt="{{ .Title }}" loading="lazy" />
   </div>
   {{- end }}
 
@@ -47,57 +51,31 @@
 
   <div class="project-actions">
     {{- if .Params.demo }}
-    <a
-      href="{{ .Params.demo }}"
-      class="project-btn project-btn-primary"
-      target="_blank"
-      rel="noopener">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
+    <a href="{{ .Params.demo }}" class="project-btn project-btn-primary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
         stroke-linejoin="round">
-        <path
-          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
         <polyline points="15,3 21,3 21,9"></polyline>
         <line x1="10" y1="14" x2="21" y2="3"></line>
       </svg>
       Live Demo
     </a>
     {{- end }} {{- if .Params.github }}
-    <a
-      href="{{ .Params.github }}"
-      class="project-btn project-btn-secondary"
-      target="_blank"
-      rel="noopener">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
+    <a href="{{ .Params.github }}" class="project-btn project-btn-secondary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
         stroke-linejoin="round">
         <path
-          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+        </path>
       </svg>
       GitHub
     </a>
     {{- end }} {{- if .Params.blog }}
-    <a
-      href="{{ .Params.blog | relURL }}"
-      class="project-btn project-btn-tertiary">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
+    <a href="{{ .Params.blog | relURL }}" class="project-btn project-btn-tertiary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
         stroke-linejoin="round">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-        <path
-          d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
       </svg>
       Read More
     </a>

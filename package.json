@@ -1,0 +1,25 @@
+{
+  "name": "utkarshjoshi",
+  "version": "1.0.0",
+  "description": "[![Deploy Status](https://github.com/utkarshjosh/utkarshjoshi/workflows/Deploy%20to%20EC2/badge.svg)](https://github.com/utkarshjosh/utkarshjoshi/actions/workflows/deploy.yml) [![Last Deploy](https://img.shields.io/github/actions/workflow/status/utkarshjosh/utkarshjoshi/deploy.yml?label=last%20deployed&logo=github)](https://github.com/utkarshjosh/utkarshjoshi/actions/workflows/deploy.yml) [![Website](https://img.shields.io/badge/website-utkarshjoshi.com-blue)](https://utkarshjoshi.com) [![Hugo](https://img.shields.io/badge/Hugo-latest-ff4088?logo=hugo)](https://gohugo.io/) [![Theme](https://img.shields.io/badge/Theme-PaperMod-00d9ff)](https://github.com/adityatelange/hugo-PaperMod)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utkarshjosh/utkarshjoshi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/utkarshjosh/utkarshjoshi/issues"
+  },
+  "homepage": "https://github.com/utkarshjosh/utkarshjoshi#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "glob": "^13.0.0",
+    "imagekit": "^6.0.0"
+  }
+}

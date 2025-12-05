@@ -58,7 +58,7 @@ params:
   # Google Analytics
   analytics:
     google:
-      enabled: true
+      enabled: false
       id: "G-4T11JKKRK4"
   defaultTheme: auto
   ShowShareButtons: true
