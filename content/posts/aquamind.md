@@ -4,7 +4,7 @@ date: 2025-12-09
 draft: false
 description: "How I built a professional-grade smart water monitoring system from scratch, evolving from high school experiments to a full-stack IoT platform."
 image: "images/projects/aquamind-site-screenshot.png"
-tags: ["IoT", "Node.js", "TypeScript", "PostgreSQL", "Firebase", "Flutter", "Arduino"]
+tags: ["IoT", "Node.js", "TypeScript", "PostgreSQL", "Firebase", "React Native", "Expo", "Arduino"]
 ---
 
 *"It started with a battery-powered doorbell..."*
@@ -65,7 +65,7 @@ Built with **Next.js 14**, **Tailwind CSS**, and **Shadcn UI**. It features:
 - Dark/Light mode support.
 
 **2. The Mobile App**
-A cross-platform app (Flutter) that puts your tank status in your pocket. Get push notifications for low levels, overflow warnings, or pump failures instantly.
+A cross-platform app (**React Native** + **Expo**) that puts your tank status in your pocket. Get push notifications for low levels, overflow warnings, or pump failures instantly.
 
 ---
 

@@ -4,7 +4,7 @@ date: 2025-12-09
 draft: false
 description: "A robust, cloud-native water level monitoring system featuring real-time analytics, multi-platform apps, and automated alerts."
 image: "images/projects/aquamind-site-screenshot.png"
-tags: ["IoT", "Node.js", "TypeScript", "PostgreSQL", "Firebase", "Flutter", "Arduino"]
+tags: ["IoT", "Node.js", "TypeScript", "PostgreSQL", "Firebase", "React Native", "Expo", "Arduino"]
 demo: "https://aquamind.utkarshjoshi.com"
 blog: "/posts/aquamind"
 ---
