@@ -13,6 +13,8 @@ I realized I had the same problem. I’m constantly looking for that specific sq
 
 That frustration sparked **"Where is my Thing?"** — a Spatial Memory Agent designed to act as an external hippocampus for your physical possessions.
 
+**Try it live at [things.utkarshjoshi.com](https://things.utkarshjoshi.com)**.
+
 ## 🏗️ Architecture Overview
 
 The system follows a modern client-server architecture optimized for real-time voice interaction.

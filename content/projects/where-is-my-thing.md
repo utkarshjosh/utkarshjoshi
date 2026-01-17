@@ -6,8 +6,11 @@ description: "A Spatial Memory Agent designed to track physical items using a co
 image: "images/projects/where-is-my-thing/hero-funny.png"
 tags: ["AI", "Voice Agent", "Neo4j", "React Native", "Python"]
 blog: "/posts/where-is-my-thing"
+demo: "https://things.utkarshjoshi.com"
 ---
 
-A Spatial Memory Agent designed to act as an external hippocampus for your physical possessions.
+A Spatial Memory Agent designed to act as an external hippocampus for your physical possessions. Built with Expo (React Native) and deployed on the web.
+
+**Try it live at [things.utkarshjoshi.com](https://things.utkarshjoshi.com)**.
 
 [Read the full story and technical breakdown in the blog post](/posts/where-is-my-thing).
