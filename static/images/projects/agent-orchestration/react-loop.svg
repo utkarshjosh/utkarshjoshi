@@ -1,0 +1,78 @@
+<svg width="900" height="520" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="meter" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="55%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="520" rx="16" fill="url(#cardGrad)"/>
+  <text x="30" y="46" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#f8fafc" font-weight="bold">A minimal LangGraph ReAct loop, three turns in</text>
+  <text x="30" y="70" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#94a3b8">every box below is the same two nodes: call the model, run a tool</text>
+
+  <!-- user -->
+  <rect x="30" y="100" width="140" height="46" rx="23" fill="#334155"/>
+  <text x="100" y="128" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#e2e8f0" text-anchor="middle">User asks</text>
+
+  <!-- loop 1 -->
+  <g>
+    <rect x="220" y="95" width="120" height="56" rx="10" fill="#312e81" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="280" y="128" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#e0e7ff" text-anchor="middle">Agent</text>
+    <rect x="380" y="95" width="120" height="56" rx="10" fill="#164e63" stroke="#2dd4bf" stroke-width="1.5"/>
+    <text x="440" y="128" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#ccfbf1" text-anchor="middle">Tool call</text>
+    <path d="M170,123 L220,123" stroke="#64748b" stroke-width="2"/>
+    <path d="M340,123 L380,123" stroke="#64748b" stroke-width="2"/>
+  </g>
+
+  <!-- loop back arc 1 -->
+  <path d="M440,151 C440,200 280,200 280,151" fill="none" stroke="#fbbf24" stroke-width="2"/>
+  <text x="360" y="205" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#fbbf24" text-anchor="middle">observation appended to history</text>
+
+  <!-- loop 2 (bigger, messier) -->
+  <g>
+    <rect x="220" y="230" width="130" height="60" rx="10" fill="#312e81" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="285" y="265" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#e0e7ff" text-anchor="middle">Agent (again)</text>
+    <rect x="400" y="230" width="130" height="60" rx="10" fill="#164e63" stroke="#2dd4bf" stroke-width="1.5"/>
+    <text x="465" y="265" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#ccfbf1" text-anchor="middle">Tool call</text>
+    <path d="M350,260 L400,260" stroke="#64748b" stroke-width="2"/>
+  </g>
+  <path d="M465,290 C465,340 285,340 285,290" fill="none" stroke="#f87171" stroke-width="2.5"/>
+  <text x="375" y="345" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#f87171" text-anchor="middle">wrong tool, retries with the whole transcript still attached</text>
+
+  <!-- loop 3 (chaotic) -->
+  <g>
+    <rect x="200" y="375" width="150" height="64" rx="10" fill="#312e81" stroke="#f87171" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="275" y="412" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#fecaca" text-anchor="middle">Agent, confused</text>
+    <rect x="420" y="375" width="150" height="64" rx="10" fill="#164e63" stroke="#f87171" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="495" y="412" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#fecaca" text-anchor="middle">Tool call #6</text>
+    <path d="M350,407 L420,407" stroke="#f87171" stroke-width="2"/>
+  </g>
+
+  <!-- context meter -->
+  <text x="650" y="105" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#e2e8f0">context window</text>
+  <rect x="650" y="118" width="220" height="18" rx="9" fill="#1e293b" stroke="#334155"/>
+  <rect x="650" y="118" width="210" height="18" rx="9" fill="url(#meter)"/>
+  <text x="650" y="155" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#94a3b8">nearly full &#8212; and still climbing</text>
+
+  <g transform="translate(650,190)">
+    <circle cx="14" cy="14" r="14" fill="#ef4444"/>
+    <text x="14" y="19" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">!</text>
+    <text x="36" y="19" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#fca5a5">no compaction, no summarizer</text>
+  </g>
+  <g transform="translate(650,220)">
+    <circle cx="14" cy="14" r="14" fill="#ef4444"/>
+    <text x="14" y="19" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">!</text>
+    <text x="36" y="19" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#fca5a5">one flat state, no sub-agents</text>
+  </g>
+  <g transform="translate(650,250)">
+    <circle cx="14" cy="14" r="14" fill="#ef4444"/>
+    <text x="14" y="19" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">!</text>
+    <text x="36" y="19" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#fca5a5">every tool trusted equally</text>
+  </g>
+
+  <text x="30" y="480" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#64748b">the graph is technically correct &#8212; it just has no idea it's drowning</text>
+</svg>
