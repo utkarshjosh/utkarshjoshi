@@ -1,7 +1,8 @@
 ---
 title: "Where is my Thing?"
 date: 2026-01-16
-draft: false
+# Archived: the service is offline and no longer maintained.
+draft: true
 description: "A Spatial Memory Agent designed to track physical items using a conversational interface and a knowledge graph"
 image: "images/projects/where-is-my-thing/hero-funny.png"
 tags: ["AI", "Voice Agent", "Neo4j", "React Native", "Python"]
