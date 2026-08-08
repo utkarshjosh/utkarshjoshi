@@ -64,7 +64,7 @@ utkarshjoshi/
 ├── static/
 │   └── images/                 # Static images (projects, profile, etc.)
 ├── themes/
-│   └── PaperMod/               # Paper Mod theme (submodule or direct)
+│   └── PaperMod/               # Paper Mod theme (vendored, with local modifications)
 ├── deploy.sh                   # Deployment script
 └── hugo.yaml                   # Hugo configuration
 ```
