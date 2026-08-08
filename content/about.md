@@ -8,8 +8,6 @@ description: "Software Engineer with 3+ years of experience building and owning 
 # Profile section
 profile:
   buttons:
-    - name: "Contact Me"
-      url: "mailto:utkarsh@example.com"
     - name: "LinkedIn"
       url: "https://linkedin.com/in/utkarshwithknack"
 
@@ -57,6 +55,8 @@ resume_download:
   url: "https://drive.google.com/uc?export=download&id=1BbxACB17z7SIovIOBrrjB7pSVts_YOJU"
   text: "Download Resume"
 ---
+
+I'm Utkarsh Joshi, the owner, author, and maintainer of utkarshjoshi.com. This is my personal website, where I publish my software engineering projects and technical writing.
 
 I'm a software engineer with 3+ years of experience building and owning products end-to-end in fast-paced startup environments. Working directly with founders and business stakeholders, I learned to think in terms of real problems, outcomes, and long-term product health—not just tasks. I care about designing durable systems: clear contracts, strong patterns, and architectures that evolve cleanly over the full software lifecycle.
 

@@ -32,7 +32,7 @@ This portfolio website serves as a comprehensive showcase of my work as a backen
 
 - 🎨 **Custom Styling**: Extended Paper Mod theme with custom CSS for personalized design
 - 📱 **Responsive Layout**: Mobile-first design that works seamlessly across all devices
-- 🔍 **SEO Optimized**: Proper meta tags, sitemap, and structured content
+- 🔍 **SEO Optimized**: Proper meta tags, sitemap, and JSON-LD structured data (Person, ProfilePage, and article publisher/author markup tied to a stable Person entity, configured via `schema` in `hugo.yaml`)
 - 📊 **Analytics**: Google Analytics integration for visitor insights
 - 🌙 **Dark Mode**: Automatic theme switching based on user preference
 - 📝 **Code Highlighting**: Syntax highlighting for code blocks
@@ -64,7 +64,7 @@ utkarshjoshi/
 ├── static/
 │   └── images/                 # Static images (projects, profile, etc.)
 ├── themes/
-│   └── PaperMod/               # Paper Mod theme (submodule or direct)
+│   └── PaperMod/               # Paper Mod theme (vendored, with local modifications)
 ├── deploy.sh                   # Deployment script
 └── hugo.yaml                   # Hugo configuration
 ```
@@ -183,6 +183,8 @@ The site uses a modified version of Paper Mod. Custom layouts are in the `layout
 - `layouts/_default/about.html` - Custom about page
 - `layouts/_default/projects.html` - Custom projects listing
 - `layouts/partials/extend_head.html` - Additional head elements
+
+The vendored theme is also modified directly; notably `themes/PaperMod/layouts/partials/templates/schema_json.html` emits the JSON-LD structured data (stable Person entity, ProfilePage on the About page, Person publisher/author on posts).
 
 ### Configuration
 
