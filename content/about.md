@@ -43,6 +43,8 @@ skills:
 
 experience:
   - company: "Xebia"
+    logo: "/images/companies/xebia.svg"
+    logo_alt: "Xebia logo"
     position: "AI/LLM Engineer"
     duration: "2026 - Present"
     highlights:
@@ -52,6 +54,8 @@ experience:
       - "Work across Python, SQL, APIs, data pipelines, and LLM orchestration and evaluation"
 
   - company: "Rovi91 Innovations"
+    logo: "/images/companies/rovi-token.png"
+    logo_alt: "$ROVI token logo"
     position: "Senior Backend Engineer"
     duration: "2022 - 2026"
     highlights:

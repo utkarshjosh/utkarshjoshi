@@ -61,12 +61,21 @@
   <h2>Experience</h2>
   <div class="experience-list">
     {{- range . }}
+    {{- $experience := . }}
     <div class="experience-item">
       <div class="experience-header">
-        <h3>{{ .position }}</h3>
-        <div class="company-duration">
-          <span class="company">{{ .company }}</span>
-          <span class="duration">{{ .duration }}</span>
+        {{- with $experience.logo }}
+        <div class="company-logo">
+          <img src="{{ . | relURL }}" alt="{{ $experience.logo_alt | default (printf "%s logo" $experience.company) }}" loading="lazy" decoding="async">
+        </div>
+        {{- end }}
+        <div class="experience-heading">
+          <h3>{{ .position }}</h3>
+          <div class="company-duration">
+            <span class="company">{{ .company }}</span>
+            <span class="company-separator" aria-hidden="true">·</span>
+            <span class="duration">{{ .duration }}</span>
+          </div>
         </div>
       </div>
       <ul class="highlight-list">
@@ -194,7 +203,34 @@
 }
 
 .experience-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin-bottom: 12px;
+}
+
+.company-logo {
+  width: 84px;
+  height: 52px;
+  flex: 0 0 84px;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.company-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.experience-heading {
+  min-width: 0;
 }
 
 .experience-header h3 {
@@ -205,26 +241,25 @@
 
 .company-duration {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .company {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--primary);
-  background: var(--tertiary);
-  padding: 3px 8px;
-  border-radius: 4px;
   font-size: 13px;
-  border: 1px solid var(--border);
+}
+
+.company-separator {
+  color: var(--secondary);
+  line-height: 1;
 }
 
 .duration {
-  color: var(--primary);
-  font-size: 12px;
-  opacity: 0.8;
+  color: var(--secondary);
+  font-size: 13px;
 }
 
 .highlight-list {
@@ -251,6 +286,20 @@
   font-weight: bold;
   font-size: 14px;
   opacity: 0.7;
+}
+
+@media screen and (max-width: 480px) {
+  .experience-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .company-logo {
+    width: 68px;
+    height: 46px;
+    flex-basis: 68px;
+    padding: 7px;
+  }
 }
 
 .resume-section {
@@ -303,4 +352,4 @@
 }
 </style>
 
-{{- end }} 
+{{- end }}
